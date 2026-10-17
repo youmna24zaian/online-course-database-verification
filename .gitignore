@@ -1,0 +1,13 @@
+# Local editor settings
+.vscode/
+.idea/
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local environment / secret files
+.env
+.env.*
+!.env.example
