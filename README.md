@@ -326,3 +326,5 @@ This exercise strengthened my understanding of SQL Server and relational databas
 **Youmna Zaian**
 
 Computer Engineering Graduate | AI & Machine Learning
+
+*This project is part of my ongoing practice in SQL, relational database design, data manipulation, and querying using Microsoft SQL Server (T-SQL).*
