@@ -1,45 +1,145 @@
-# Online Course Database Verification
 
-A small SQL Server exercise for inspecting the active database context and checking whether an `Online_Course` database and metadata entries named `Students` and `Enrollments` are visible. This repository documents and organizes the checks in the supplied `Exercise 3.sql`; it does not claim to implement a complete database test suite.
+# Exercise 3 — Online Course Database
 
-## What it verifies
+![Exercise 3 Banner](Images/exercise-3-banner.png)
 
-The script performs these operations, in order:
+## 📌 Project Overview
 
-1. Displays the name of the database currently selected by the connection (`DB_NAME()`).
-2. Searches `sys.databases` for a database named `Online_Course`.
-3. Attempts to select `Online_Course` with `USE Online_Course`.
-4. Displays the selected database name again.
-5. Lists schema and object names returned by `INFORMATION_SCHEMA.TABLES` for the names `Students` and `Enrollments`.
+This project demonstrates SQL Server fundamentals through an Online Course Database exercise. It covers database creation, table relationships, sample data insertion, data filtering, aggregate functions, grouping, and subqueries.
 
-The final query returns matching metadata entries if found; it does **not** produce an explicit missing-object warning or a PASS/FAIL result. It also does not inspect columns, rows, data quality, constraints, keys, relationships, or application behavior. No execution results are included because the script has not been run against your SQL Server instance.
+The database consists of two related tables: `Students` and `Enrollments`.
 
-## Requirements
+## 🎯 Objectives
 
-- A Microsoft SQL Server instance containing the target database, if you expect the database-selection and metadata steps to succeed.
-- A SQL Server client such as SQL Server Management Studio (SSMS), Azure Data Studio, or `sqlcmd` that supports the `GO` batch separator.
-- A login with permission to connect to the instance, see the relevant database metadata, and access `Online_Course`.
+- Create and use a SQL Server database.
+- Create tables and define primary and foreign key constraints.
+- Insert sample student and enrollment records.
+- Retrieve and filter data using SQL queries.
+- Apply aggregate functions and grouping.
+- Filter grouped results using `HAVING`.
+- Use subqueries to answer data-related questions.
 
-## Execution
+## 📁 Repository Structure
 
-1. Connect your SQL client to the intended SQL Server instance using your own credentials.
-2. Open [`Exercise 3.sql`](Exercise%203.sql).
-3. Review the target database name and confirm that running the `USE Online_Course` statement is appropriate for that connection.
-4. Execute the script from top to bottom.
-5. Review the result sets described below. Preserve the order and batch separators; `GO` is a client-side batch separator recognized by the listed tools, not a T-SQL statement sent to the server.
+```text
+Exercise 3/
+├── Images/
+│   ├── exercise-3-banner.png
+│   ├── exercise-3-workflow.png
+│   ├── exercise-3-concepts.png
+│   └── exercise-3-showcase.png
+├── Exercise 3.sql
+├── .gitignore
+└── README.md
+```
 
-If `Online_Course` is absent or inaccessible, the `USE Online_Course` statement will fail. In that case, the subsequent database-context and metadata checks will not complete as intended. A row from `sys.databases` depends on the login's metadata visibility as well as the database's existence.
+## 🛠️ Tools and Technologies
 
-## Verification steps
+- Microsoft SQL Server
+- SQL Server Management Studio (SSMS)
+- Transact-SQL (T-SQL)
 
-- In the first result set, note the initial `CurrentDatabase` value.
-- In the database lookup result, check whether `Online_Course` is returned. An empty result is not by itself proof that the database is absent if metadata visibility is restricted.
-- If the `USE` statement succeeds, confirm the second `CurrentDatabase` value is `Online_Course`.
-- In the final result set, compare the returned `TABLE_SCHEMA` / `TABLE_NAME` entries with the two names requested. Since the query only returns matches, an absent name will not appear as a separate failure row.
-- Treat these as inspection results, not a comprehensive database validation or automated test verdict.
+## 🗄️ Database Design
 
-## Repository contents
+The exercise uses two tables.
 
-- `Exercise 3.sql` — the supplied checks, grouped and commented without adding new queries.
-- `screenshots/` — reserved for screenshots to be added later; no images are included.
-- `.gitignore` — excludes common local editor and operating-system files.
+### 1. Students
+
+Stores student information:
+
+- `StudentID` — Primary key
+- `FirstName` — Student's first name
+- `LastName` — Student's last name
+- `Age` — Student's age
+- `City` — Student's city
+- `GPA` — Grade Point Average
+
+### 2. Enrollments
+
+Stores course enrollment information:
+
+- `EnrollmentID` — Primary key
+- `StudentID` — References the corresponding student
+- `CourseName` — Course name
+- `Grade` — Grade received
+- `Fee` — Course fee
+- `Semester` — Enrollment semester
+
+The `StudentID` foreign key connects `Enrollments` to `Students`, establishing a relationship between students and their course enrollments.
+
+## 🔄 SQL Workflow
+
+![SQL Workflow](Images/exercise-3-workflow.png)
+
+The script follows these steps:
+
+1. Create the `Online_Course` database.
+2. Select the database for subsequent operations.
+3. Create the `Students` and `Enrollments` tables.
+4. Define the foreign key relationship.
+5. Insert sample records into both tables.
+6. Execute SQL queries to retrieve and analyze data.
+
+## 📚 SQL Concepts Covered
+
+![SQL Concepts](Images/exercise-3-concepts.png)
+
+| SQL Concept | Application |
+|---|---|
+| Database Operations | `CREATE DATABASE`, `USE` |
+| Table Creation | `CREATE TABLE` |
+| Constraints | Primary keys, foreign keys, `NOT NULL` |
+| Data Insertion | `INSERT INTO` |
+| Filtering | `WHERE`, `AND`, `OR` |
+| Sorting | `ORDER BY` |
+| Unique Values | `DISTINCT` |
+| Limiting Results | `TOP` |
+| Aggregate Functions | `AVG`, `MAX`, `MIN`, `COUNT` |
+| Grouping | `GROUP BY`, `HAVING` |
+| Subqueries | Nested `SELECT` statements |
+
+## 🔍 Query Highlights
+
+The exercise includes queries to:
+
+- Retrieve students with a GPA greater than 3.00.
+- Filter students by city and age.
+- Display unique city names in alphabetical order.
+- Retrieve the three students with the highest GPAs.
+- Calculate the average, highest, and lowest GPAs.
+- Calculate the average grade for each course.
+- Count enrollments for courses with more than three enrollments.
+- Find students older than the average student age.
+- Compare student GPAs with the average GPA of students living in Cairo.
+- Find students with an enrollment grade above the overall average grade.
+
+## 🖼️ Project Visual Showcase
+
+![Project Showcase](Images/exercise-3-showcase.png)
+
+## ▶️ How to Run
+
+1. Open SQL Server Management Studio (SSMS).
+2. Connect to a SQL Server instance.
+3. Open `Exercise 3.sql`.
+4. Execute the script.
+5. Review the query results in the Results grid.
+
+**Note:** The script begins with `CREATE DATABASE Online_Course`. If the database already exists, SQL Server will return an error. Run the script on a suitable SQL Server instance where the database does not already exist, or handle the existing database before rerunning it.
+
+## 📈 Learning Outcomes
+
+By completing this exercise, I practiced:
+
+- Creating relational database tables.
+- Defining primary and foreign key constraints.
+- Inserting and querying structured data.
+- Applying filtering and sorting conditions.
+- Using aggregate functions and grouped queries.
+- Writing subqueries to solve more complex data retrieval tasks.
+
+## 👩‍💻 Author
+
+**Youmna Zaian**
+
+Computer Engineering Graduate | AI & Machine Learning
