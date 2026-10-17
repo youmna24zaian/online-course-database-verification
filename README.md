@@ -1,7 +1,7 @@
 
 # Exercise 3 — Online Course Database
 
-![Exercise 3 Banner](Images/exercise-3-banner.png)
+![Exercise 3 Banner](images/exercise-3-banner.png)
 
 ## Project Overview
 
@@ -69,7 +69,7 @@ The `StudentID` foreign key connects `Enrollments` to `Students`, establishing a
 
 ## SQL Workflow
 
-![SQL Workflow](Images/exercise-3-workflow.png)
+![SQL Workflow](images/exercise-3-workflow.png)
 
 The script follows these steps:
 
@@ -82,7 +82,7 @@ The script follows these steps:
 
 ## SQL Concepts Covered
 
-![SQL Concepts](Images/exercise-3-concepts.png)
+![SQL Concepts](images/exercise-3-concepts.png)
 
 | SQL Concept | Application |
 |---|---|
@@ -115,7 +115,7 @@ The exercise includes queries to:
 
 ## Project Visual Showcase
 
-![Project Showcase](Images/exercise-3-showcase.png)
+![Project Showcase](images/exercise-3-showcase.png)
 
 ## How to Run
 
