@@ -3,13 +3,13 @@
 
 ![Exercise 3 Banner](Images/exercise-3-banner.png)
 
-## 📌 Project Overview
+## Project Overview
 
 This project demonstrates SQL Server fundamentals through an Online Course Database exercise. It covers database creation, table relationships, sample data insertion, data filtering, aggregate functions, grouping, and subqueries.
 
 The database consists of two related tables: `Students` and `Enrollments`.
 
-## 🎯 Objectives
+## Objectives
 
 - Create and use a SQL Server database.
 - Create tables and define primary and foreign key constraints.
@@ -19,7 +19,7 @@ The database consists of two related tables: `Students` and `Enrollments`.
 - Filter grouped results using `HAVING`.
 - Use subqueries to answer data-related questions.
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```text
 Exercise 3/
@@ -33,13 +33,13 @@ Exercise 3/
 └── README.md
 ```
 
-## 🛠️ Tools and Technologies
+## Tools and Technologies
 
 - Microsoft SQL Server
 - SQL Server Management Studio (SSMS)
 - Transact-SQL (T-SQL)
 
-## 🗄️ Database Design
+## Database Design
 
 The exercise uses two tables.
 
@@ -67,7 +67,7 @@ Stores course enrollment information:
 
 The `StudentID` foreign key connects `Enrollments` to `Students`, establishing a relationship between students and their course enrollments.
 
-## 🔄 SQL Workflow
+## SQL Workflow
 
 ![SQL Workflow](Images/exercise-3-workflow.png)
 
@@ -80,7 +80,7 @@ The script follows these steps:
 5. Insert sample records into both tables.
 6. Execute SQL queries to retrieve and analyze data.
 
-## 📚 SQL Concepts Covered
+## SQL Concepts Covered
 
 ![SQL Concepts](Images/exercise-3-concepts.png)
 
@@ -98,7 +98,7 @@ The script follows these steps:
 | Grouping | `GROUP BY`, `HAVING` |
 | Subqueries | Nested `SELECT` statements |
 
-## 🔍 Query Highlights
+## Query Highlights
 
 The exercise includes queries to:
 
@@ -113,11 +113,11 @@ The exercise includes queries to:
 - Compare student GPAs with the average GPA of students living in Cairo.
 - Find students with an enrollment grade above the overall average grade.
 
-## 🖼️ Project Visual Showcase
+## Project Visual Showcase
 
 ![Project Showcase](Images/exercise-3-showcase.png)
 
-## ▶️ How to Run
+## How to Run
 
 1. Open SQL Server Management Studio (SSMS).
 2. Connect to a SQL Server instance.
@@ -127,7 +127,7 @@ The exercise includes queries to:
 
 **Note:** The script begins with `CREATE DATABASE Online_Course`. If the database already exists, SQL Server will return an error. Run the script on a suitable SQL Server instance where the database does not already exist, or handle the existing database before rerunning it.
 
-## 📈 Learning Outcomes
+## Learning Outcomes
 
 By completing this exercise, I practiced:
 
@@ -138,7 +138,7 @@ By completing this exercise, I practiced:
 - Using aggregate functions and grouped queries.
 - Writing subqueries to solve more complex data retrieval tasks.
 
-## 👩‍💻 Author
+## Author
 
 **Youmna Zaian**
 
